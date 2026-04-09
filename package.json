@@ -8,7 +8,7 @@
     "build:architectures": "rm -rf ./packages/core/src/architectures/* && python ./scripts/collect_models.py --from_cache --all_models && npm run format",
     "upload:model-explorer": "huggingface-cli upload onnx-community/model-explorer ./data/model-explorer . --repo-type dataset --create-pr",
     "pull:model-explorer": "git clone https://huggingface.co/datasets/onnx-community/model-explorer ./data/model-explorer",
-    "format": "npx prettier --write \"**/*.js\"",
+    "format": "npx prettier --write .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {

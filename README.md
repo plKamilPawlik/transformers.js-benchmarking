@@ -19,7 +19,6 @@ A versatile toolkit designed to measure and compare the performance of Transform
    Then run with one of the following:
 
 2. **Run Benchmarks**
-
    - web ([online demo](https://huggingface.co/spaces/onnx-internal-testing/transformers.js-benchmarking)):
 
      ```sh
@@ -44,7 +43,6 @@ A versatile toolkit designed to measure and compare the performance of Transform
      ```
 
 3. **(Optional) Prepare model operations**
-
    - Install Python dependencies:
 
      ```sh

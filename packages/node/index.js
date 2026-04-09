@@ -5,14 +5,20 @@ const SUITES = {
   PipelineTestSuite,
 };
 
-for (const [name, Suite] of Object.entries(SUITES)) {
+for (const [suiteName, Suite] of Object.entries(SUITES)) {
+  const FAILURES = [];
   console.log("=".repeat(80));
-  console.log(`Running ${name}`);
+  console.log(`Running ${suiteName}`);
 
   // Run tests
   const suite = new Suite();
   for await (const { name, result } of suite.run()) {
     console.log(`  - ${name}`);
+    if ("error" in result) {
+      console.error(`    - Error: ${result.error}`);
+      FAILURES.push({ suite: suiteName, name, error: result.error });
+      continue;
+    }
     console.log(`    - Setup time: ${result.setupTime} ms`);
     console.log(`    - Dispose time: ${result.disposeTime} ms`);
     console.log(`    - Stats:`);
@@ -27,6 +33,10 @@ for (const [name, Suite] of Object.entries(SUITES)) {
       );
       console.log(`        - Standard deviation: ${stats.stdDev} ms`);
     }
+  }
+
+  if (FAILURES.length > 0) {
+    console.table(FAILURES);
   }
   console.log("=".repeat(80));
 }
