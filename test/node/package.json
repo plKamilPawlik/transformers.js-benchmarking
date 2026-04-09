@@ -1,9 +1,13 @@
 {
-  "name": "node",
-  "version": "1.0.0",
-  "main": "index.js",
-  "type": "module",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  }
+	"name": "node",
+	"type": "module",
+	"version": "1.0.0",
+	"scripts": {
+		"test:v3": "node ./suites/v3.js",
+		"test:v4": "node ./suites/v4.js"
+	},
+	"dependencies": {
+		"@benchmarking/core-v3": "file:../../packages/core-v3",
+		"@benchmarking/core-v4": "file:../../packages/core-v4"
+	}
 }

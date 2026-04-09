@@ -1,0 +1,18 @@
+{
+	"nodeModulesDir": "auto",
+	"tasks": {
+		"test:v3": "deno run -A ./suites/v3.ts",
+		"test:v4": "deno run -A ./suites/v4.ts"
+	},
+	"imports": {
+		"@benchmarking/core-v3": "npm:@benchmarking/core-v3",
+		"@benchmarking/core-v4": "npm:@benchmarking/core-v4"
+	},
+	"links": ["../../packages/core-v3", "../../packages/core-v4"],
+	"allowScripts": [
+		"npm:onnxruntime-node@1.21.0",
+		"npm:onnxruntime-node@1.24.3",
+		"npm:protobufjs@7.5.4",
+		"npm:sharp@0.34.5"
+	]
+}
