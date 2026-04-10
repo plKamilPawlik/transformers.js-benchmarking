@@ -12,8 +12,11 @@ A versatile toolkit designed to measure and compare the performance of Transform
 1. **Install core dependencies** first
 
    ```sh
-   cd packages/core/
-   npm i
+   cd ~/packages/core-v3/
+   npm ci
+
+   cd ~/packages/core-v3/
+   npm ci
    ```
 
    Then run with one of the following:
@@ -23,24 +26,36 @@ A versatile toolkit designed to measure and compare the performance of Transform
    - web ([online demo](https://huggingface.co/spaces/onnx-internal-testing/transformers.js-benchmarking)):
 
      ```sh
-     cd packages/web/
-     npm i
+     cd ~/test/web/
+     npm ci
      npm run dev
      ```
 
    - Node.js
 
      ```sh
-     cd packages/node/
-     npm i
-     node index.js
+     cd ~/test/node/
+     npm ci
+     npm run test:v3
+     npm run test:v4
      ```
 
    - Bun
+
      ```sh
-     cd packages/bun/
+     cd ~/test/bun/
      bun install
-     bun run index.ts
+     npm run test:v3
+     npm run test:v4
+     ```
+
+   - Deno
+
+     ```sh
+     cd ~/test/deno/
+     deno install
+     deno task test:v3
+     deno task test:v4
      ```
 
 3. **(Optional) Prepare model operations**
@@ -69,12 +84,15 @@ A versatile toolkit designed to measure and compare the performance of Transform
 
 ```
 ├── packages
-│   ├── core         # Core engine powering the benchmarking suite.
-│   ├── web          # User-friendly web interface for running benchmarks.
-│   ├── node         # CLI tailored for Node.js environments.
-│   └── bun          # CLI support specifically built for Bun.
-├── scripts          # Utility scripts for tasks like collecting model operations.
-└── data             # Repository and model operation files (e.g., model_ops.csv).
+│   ├── core-v3     # Core engine powering the benchmarking suite with transformers@v3.
+│   └── core-v3     # Core engine powering the benchmarking suite with transformers@v4.
+├── tests
+│   ├── bun         # CLI support specifically built for Bun.
+│   └── deno        # CLI support specifically built for Deno.
+│   └── node        # CLI support specifically built for Node.js.
+│   └── web         # User-friendly web interface for running benchmarks.
+├── scripts         # Utility scripts for tasks like collecting model operations.
+└── data            # Repository and model operation files (e.g., model_ops.csv).
 ```
 
 ## Additional Resources
